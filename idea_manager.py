@@ -1,14 +1,20 @@
+def show_menu():
+    print ("\n==== Menu ====")
+    print ("1. Add idea")
+    print ("2. List ideas")
+    print ("3. Search")
+    print ("4. Mark as done")
+    print ("5. Exit")
+
+def is_valid_priority(value):
+    return 1 <= value <= 5
+
 # Idea Manager v0.2
 ideas = []
 choice = ""
 
 while choice != "5":
-    print("\n==== IDEA MANAGER ====")
-    print("1. Add idea")
-    print("2. List ideas")
-    print("3. Search")
-    print("4. Mark as done")
-    print("5. Exit")
+    show_menu()
 
     choice = input("Choose an option (1-5): ").strip()
 
@@ -26,7 +32,7 @@ while choice != "5":
 
             if priority_input.isdigit():
                 priority = int(priority_input)
-                if 1 <= priority <= 5:
+                if is_valid_priority(priority):
                     break
                 print("Invalid priority. Please enter a number between 1 and 5.")
             else:
